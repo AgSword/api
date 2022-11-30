@@ -63,7 +63,7 @@ public class PostQueryRequest extends PageRequest implements Serializable {
     /**
      * 创建用户 id
      */
-    private Long userId;
+    private Long user_id;
 
     private static final long serialVersionUID = 1L;
 }

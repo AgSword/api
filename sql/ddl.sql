@@ -1,8 +1,8 @@
 -- 创建库
-create database if not exists my_db;
+create database if not exists api;
 
 -- 切换库
-use my_db;
+use api;
 
 -- 用户表
 create table if not exists user
@@ -14,9 +14,9 @@ create table if not exists user
     gender       tinyint                                null comment '性别',
     userRole     varchar(256) default 'user'            not null comment '用户角色：user / admin',
     userPassword varchar(512)                           not null comment '密码',
-    createTime   datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
-    updateTime   datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
-    isDelete     tinyint      default 0                 not null comment '是否删除',
+    create_time   datetime     default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time   datetime     default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    is_delete     tinyint      default 0                 not null comment '是否删除',
     constraint uni_userAccount
         unique (userAccount)
 ) comment '用户';
@@ -38,8 +38,8 @@ create table if not exists post
     reviewMessage varchar(512)                       null comment '审核信息',
     viewNum       int                                not null default 0 comment '浏览数',
     thumbNum      int                                not null default 0 comment '点赞数',
-    userId        bigint                             not null comment '创建用户 id',
-    createTime    datetime default CURRENT_TIMESTAMP not null comment '创建时间',
-    updateTime    datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
-    isDelete      tinyint  default 0                 not null comment '是否删除'
+    user_id        bigint                             not null comment '创建用户 id',
+    create_time    datetime default CURRENT_TIMESTAMP not null comment '创建时间',
+    update_time    datetime default CURRENT_TIMESTAMP not null on update CURRENT_TIMESTAMP comment '更新时间',
+    is_delete      tinyint  default 0                 not null comment '是否删除'
 ) comment '帖子';

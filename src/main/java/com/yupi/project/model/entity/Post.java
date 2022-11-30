@@ -88,23 +88,23 @@ public class Post implements Serializable {
     /**
      * 创建用户 id
      */
-    private Long userId;
+    private Long user_id;
 
     /**
      * 创建时间
      */
-    private Date createTime;
+    private Date create_time;
 
     /**
      * 更新时间
      */
-    private Date updateTime;
+    private Date update_time;
 
     /**
      * 是否删除
      */
     @TableLogic
-    private Integer isDelete;
+    private Integer is_delete;
 
     @TableField(exist = false)
     private static final long serialVersionUID = 1L;

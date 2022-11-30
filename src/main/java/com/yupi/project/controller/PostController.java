@@ -66,7 +66,7 @@ public class PostController {
         // 校验
         postService.validPost(post, true);
         User loginUser = userService.getLoginUser(request);
-        post.setUserId(loginUser.getId());
+        post.setUser_id(loginUser.getId());
         boolean result = postService.save(post);
         if (!result) {
             throw new BusinessException(ErrorCode.OPERATION_ERROR);
@@ -95,7 +95,7 @@ public class PostController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         // 仅本人或管理员可删除
-        if (!oldPost.getUserId().equals(user.getId()) && !userService.isAdmin(request)) {
+        if (!oldPost.getUser_id().equals(user.getId()) && !userService.isAdmin(request)) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         boolean b = postService.removeById(id);
@@ -127,7 +127,7 @@ public class PostController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR);
         }
         // 仅本人或管理员可修改
-        if (!oldPost.getUserId().equals(user.getId()) && !userService.isAdmin(request)) {
+        if (!oldPost.getUser_id().equals(user.getId()) && !userService.isAdmin(request)) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR);
         }
         boolean result = postService.updateById(post);
